@@ -12,4 +12,4 @@ Om ervaring op te doen met het werken volgens de SCRUM-methodiek, hebben we een 
 
 [Wilkes Perea (Front-End developer)](https://github.com/Queen018)
 
-[Jadon Trey Ferdinand Pierau (Full stack developer)](https://github.com/Queen018)
+[Jadon Trey Ferdinand Pierau (Full stack developer)]()

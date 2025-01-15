@@ -8,7 +8,6 @@ CREATE TABLE `Students` (
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `age` int(11) NOT NULL,
   `birthdate` date NOT NULL,
@@ -23,7 +22,6 @@ CREATE TABLE `Coaches` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
@@ -39,10 +37,12 @@ CREATE TABLE `Modules` (
 );
 
 INSERT INTO `Modules` (`name`, `description`, `level_amount`) VALUES
-  ('PHP Beginner', 'Begin met het leren van PHP!', 3),
-  ('PHP Advanced', 'Ga verder met het leren van PHP!', 5),
-  ('JavaScript Beginner', 'Begin met het leren van JavaScript!', 4),
-  ('JavaScript Advanced', 'Ga verder met het leren van JavaScript!', 3);
+  ('PHP Beginner (Placeholder)', 'Begin met het leren van PHP!', 3),
+  ('PHP Advanced (Placeholder)', 'Ga verder met het leren van PHP!', 5),
+  ('JavaScript Beginner (Placeholder)', 'Begin met het leren van JavaScript!', 4),
+  ('JavaScript Advanced (Placeholder)', 'Ga verder met het leren van JavaScript!', 3);
+  ('JavaScript Beginner (Placeholder)', 'Begin met het leren van JavaScript!', 4),
+  ('JavaScript Advanced (Placeholder)', 'Ga verder met het leren van JavaScript!', 3);
 
 CREATE TABLE `Levels` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -55,19 +55,19 @@ CREATE TABLE `Levels` (
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO `Levels` (`name`, `description`, `xp_amount`, `level_code`, `module_id`) VALUES
-  ('PHP Beginner Level 1', 'Het eerste level', 10, 'M01L01', 1),
-  ('PHP Beginner Level 2', 'Het tweede level', 20, 'M01L02', 1),
-  ('PHP Beginner Level 3', 'Het derde level', 30, 'M01L03', 1),
-  ('PHP Advanced Level 1', 'Het eerste level', 10, 'M02L01', 2),
-  ('PHP Advanced Level 2', 'Het tweede level', 20, 'M02L02', 2),
-  ('PHP Advanced Level 3', 'Het derde level', 30, 'M02L03', 2),
-  ('PHP Advanced Level 4', 'Het vierde level', 40, 'M02L04', 2),
-  ('PHP Advanced Level 5', 'Het vijfde level', 50, 'M02L05', 2),
-  ('JavaScript Beginner Level 1', 'Het eerste level',  10, 'M03L01', 3),
-  ('JavaScript Beginner Level 2', 'Het tweede level', 20, 'M03L02', 3),
-  ('JavaScript Beginner Level 3', 'Het derde level', 30, 'M03L03', 3),
-  ('JavaScript Beginner Level 4', 'Het vierde level', 40, 'M03L04', 3),
-  ('JavaScript Advanced Level 1', 'Het eerste level', 10, 'M04L01', 4),
-  ('JavaScript Advanced Level 2', 'Het tweede level', 20, 'M04L02', 4),
-  ('JavaScript Advanced Level 3', 'Het derde level', 30, 'M04L03', 4);
+INSERT INTO `Levels` (`name`, `description`, `xp_amount`, `levelIndex`, `module_id`) VALUES
+  ('PHP Beginner (Placeholder)', 'Het eerste level', 10, 1, 1),
+  ('PHP Beginner (Placeholder)', 'Het tweede level', 20, 2, 1),
+  ('PHP Beginner (Placeholder)', 'Het derde level', 30, 3, 1),
+  ('PHP Advanced (Placeholder)', 'Het eerste level', 10, 1, 2),
+  ('PHP Advanced (Placeholder)', 'Het tweede level', 20, 2, 2),
+  ('PHP Advanced (Placeholder)', 'Het derde level', 30, 3, 2),
+  ('PHP Advanced (Placeholder)', 'Het vierde level', 40, 4, 2),
+  ('PHP Advanced (Placeholder)', 'Het vijfde level', 50, 5, 2),
+  ('JavaScript Beginner (Placeholder)', 'Het eerste level',  10, 1, 3),
+  ('JavaScript Beginner (Placeholder)', 'Het tweede level', 20, 2, 3),
+  ('JavaScript Beginner (Placeholder)', 'Het derde level', 30, 3, 3),
+  ('JavaScript Beginner (Placeholder)', 'Het vierde level', 40, 4, 3),
+  ('JavaScript Advanced (Placeholder)', 'Het eerste level', 10, 5, 4),
+  ('JavaScript Advanced (Placeholder)', 'Het tweede level', 20, 6, 4),
+  ('JavaScript Advanced (Placeholder)', 'Het derde level', 30, 7, 4);
