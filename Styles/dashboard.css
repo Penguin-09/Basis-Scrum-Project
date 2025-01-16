@@ -1,0 +1,152 @@
+/* 1. RESETS */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    /* outline: none; */
+}
+
+/* 2. GLOBAL */
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 3. MAIN HEADER */
+header {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1rem;
+    background-color: lightgrey;
+
+    .brand span {
+        font-size: 1.5rem;
+    }
+
+    .main-nav {
+        margin-inline: auto;
+
+        ul {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.25rem;
+
+            li {
+                padding: 0.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .user-info {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .level-progress {
+            position: relative;
+            width: 10rem;
+            text-align: center;
+            
+            .level-progress__outer {
+                width: 100%;
+                height: 2rem;
+                display: flex;
+                align-items: center;
+                border: 1px solid #000000;
+                border-radius: 0.6rem;
+                
+                .level-progress__inner {
+                    width: 48%;
+                    height: 100%;
+                    border-radius: 0.5rem;
+                    background-color: grey;
+
+                    span {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        color: white;
+                    }
+                }
+            }
+        }
+        
+        .account-options {
+            position: relative;
+            
+            button {
+
+                svg {
+                    width: 3rem;
+                    height: 100%;
+                    pointer-events: none;
+                }
+            }
+            
+            .dropdown {
+                position: absolute;
+                top: 100%;
+                right: -1rem;
+                width: 10rem;
+                height: 0rem;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 1rem;
+                padding-inline: 1rem;
+                background-color: lightgrey;
+                transition: height 0.2s ease-in-out;
+
+                a {
+                    padding: 0.4rem;
+                }
+            }
+
+            .dropdown.show {
+                height: 24rem;
+            }
+        }
+    }
+}
+
+/* 4. DASHBOARD */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(30rem, 100%), 1fr));
+    min-height: 90vh;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    
+    .dashboard__item {
+        width: 100%;
+        height: 30rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        border: 1px solid black;
+        border-radius: 0.3rem;
+        background-color: lightgrey;
+    }
+}
