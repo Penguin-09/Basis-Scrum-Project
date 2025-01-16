@@ -1,0 +1,63 @@
+.loginPage {
+    display: flex;
+    justify-content: center;
+    background-color: #929780;
+    height: 100vh;
+}
+
+.loginRegister {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginTextContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #3b4930;
+    width: 60%;
+    height: 75vh;
+}
+
+.containerimage {
+    width: 100%;
+    background-color: #afb49d;
+    border-radius: 0px 50px 50px 0px;
+}
+
+.queote {
+    margin-top: 100px;
+    font-size: 1.5em;
+    color: #3b4930;
+    font-weight: bold;
+    text-align: center;
+}
+
+.layoutImage {
+    display: flex;
+    flex-direction: column;
+}
+
+.layoutImage > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+[alt="logo"] {
+    width: 70%;
+    height: 50%;
+}
+
+[alt="WomanWatering"] {
+    margin-top: 40px;
+    width: 80%;
+    height: 80%;
+}
