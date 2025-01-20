@@ -24,6 +24,11 @@
     height: 75vh;
 }
 
+.inputToLogin {
+    display: flex;
+    flex-direction: column;
+}
+
 .containerimage {
     width: 100%;
     background-color: #afb49d;
@@ -52,8 +57,7 @@
 }
 
 [alt="logo"] {
-    width: 70%;
-    height: 50%;
+    object-fit: cover
 }
 
 [alt="WomanWatering"] {
