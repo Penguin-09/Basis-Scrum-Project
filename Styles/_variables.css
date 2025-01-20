@@ -1,16 +1,16 @@
 :root {
     /* COLOR */
-    /* bijvoorbeeld... */
-    --clr-primary: #123456;
-    --clr-secondary: #123456;
-    --clr-accent: #123456;
+    --nav-text-color: #d0d0b8;
+    --nav-bg-color: #3b4930;
     
     /* FONT SIZE */
-    
+    --nav-font-size: 1.2rem;
     
     
     /* FONT WEIGHT */
-    
+
+    @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
     
     
     /* BOX SHADOW */

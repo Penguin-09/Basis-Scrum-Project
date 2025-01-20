@@ -4,50 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/dashboard.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="../JS/dashboard.js" defer></script>
     <title>Rhizome - Dashboard</title>
 </head>
 <body>
-    <header>
-        <div class="brand">
-            <span>
-                Rhizome
-            </span>
-        </div>
+    <header class="fixed top-0 left-0 w-full">
         <nav class="main-nav">
-            <ul>
-                <li>Home</li>
-                <li>Universe</li>
-                <li>Reviews</li>
-                <li>Ontwikkeling</li>
-            </ul>
-        </nav>
-        <div class="user-info">
-            <div class="level-progress">
-                <div class="level-progress__outer">
-                    <div class="level-progress__inner">
-                        <span>48%</span>
+            <div class="flex items-center justify-between mx-3">
+                <a href="dashboardStudent.html" class="p-0">
+                    <img src="../images/Logo.png" alt="Rhizome Logo" class="w-20 h-20" href="dashboardStudent.html"/>
+                </a>
+
+                <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+                    <ul class="flex">
+                    <li>
+                        <a href="dashboardStudent.html" class="py-1 px-2" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="py-1 px-2">Tree</a>
+                    </li>
+                    <li>
+                        <a href="#" class="py-1 px-2">Reviews</a>
+                    </li>
+                    <li>
+                        <a href="#" class="py-1 px-2">Ontwikkeling</a>
+                    </li>
+                    </ul>
+                </div>
+
+                <div class="user-info">
+                    <div class="level-progress">
+                        <div class="level-progress__outer">
+                            <div class="level-progress__inner">
+                                <span>48%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-options">
+                        <button>
+                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12.1992 12C14.9606 12 17.1992 9.76142 17.1992 7C17.1992 4.23858 14.9606 2 12.1992 2C9.43779 2 7.19922 4.23858 7.19922 7C7.19922 9.76142 9.43779 12 12.1992 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 22C3.57038 20.0332 4.74796 18.2971 6.3644 17.0399C7.98083 15.7827 9.95335 15.0687 12 15C16.12 15 19.63 17.91 21 22" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        </button>
+                        <div class="dropdown">
+                            <a href="#">Studen Name</a>
+                            <hr>
+                            <a href="#">Gegevens</a>
+                            <a href="#">Certificaten</a>
+                            <a href="#">Instellingen</a>
+                            <a href="#">Studiegids</a>
+                            <a href="#">Bitlab</a>
+                            <hr>
+                            <a href="#">Uitloggen</a>
+                        </div>
                     </div>
                 </div>
+                
             </div>
-            <div class="account-options">
-                <button>
-                    <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12.1992 12C14.9606 12 17.1992 9.76142 17.1992 7C17.1992 4.23858 14.9606 2 12.1992 2C9.43779 2 7.19922 4.23858 7.19922 7C7.19922 9.76142 9.43779 12 12.1992 12Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 22C3.57038 20.0332 4.74796 18.2971 6.3644 17.0399C7.98083 15.7827 9.95335 15.0687 12 15C16.12 15 19.63 17.91 21 22" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                </button>
-                <div class="dropdown">
-                    <a href="#">Studen Name</a>
-                    <hr>
-                    <a href="#">Gegevens</a>
-                    <a href="#">Certificaten</a>
-                    <a href="#">Instellingen</a>
-                    <a href="#">Studiegids</a>
-                    <a href="#">Bitlab</a>
-                    <hr>
-                    <a href="#">Uitloggen</a>
-                </div>
-            </div>
-        </div>
+        </nav>
     </header>
+
     <main>
         <div class="dashboard">
             <div class="dashboard__item dashboard__week-goals">Weekdoelen</div>

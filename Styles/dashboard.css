@@ -7,6 +7,40 @@
     padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    /* COLOR */
+    --nav-text-color: #d0d0b8;
+    --nav-bg-color: #3b4930;
+    --btn-bg-color: #d5d0ba;
+    --lvl-bg-color: #929780;
+    --btn-text-color: #404035;
+    
+    /* FONT SIZE */
+    --nav-font-size: 1.2rem;
+    
+    
+    /* FONT WEIGHT */
+    
+    
+    
+    /* BOX SHADOW */
+    
+    
+    
+    /* TEXT SHADOW */
+    
+    
+    
+    /* ... */
+}
+
+body {
+    background-image: url("../images/backGround.png");
+    background-size: cover;
+}
+
 button {
     border: none;
     background-color: transparent;
@@ -26,24 +60,25 @@ a {
 
 /* 3. MAIN HEADER */
 header {
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 1rem;
-    background-color: lightgrey;
 
-    .brand span {
-        font-size: 1.5rem;
+    [alt="Rhizome Logo"] {
+        width: 150px;
+        height: 80px;
     }
 
     .main-nav {
-        margin-inline: auto;
+        background-color: var(--nav-bg-color);
+        color: var(--nav-text-color);
+        border-radius: 0px 0px 10px 10px;
+        height: 10vh;
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        font-style: normal;
 
         ul {
             display: flex;
             gap: 1rem;
-            font-size: 1.25rem;
+            font-size: 25px;
 
             li {
                 padding: 0.5rem;
@@ -68,14 +103,15 @@ header {
                 height: 2rem;
                 display: flex;
                 align-items: center;
-                border: 1px solid #000000;
+                border: 2px solid #000000;
                 border-radius: 0.6rem;
+                background-color: #929780;
                 
                 .level-progress__inner {
                     width: 48%;
                     height: 100%;
                     border-radius: 0.5rem;
-                    background-color: grey;
+                    background-color: var(--btn-bg-color);
 
                     span {
                         position: absolute;
@@ -84,7 +120,7 @@ header {
                         transform: translate(-50%, -50%);
                         font-size: 1.1rem;
                         font-weight: 600;
-                        color: white;
+                        color: black;
                     }
                 }
             }
@@ -114,8 +150,9 @@ header {
                 justify-content: center;
                 gap: 1rem;
                 padding-inline: 1rem;
-                background-color: lightgrey;
+                background-color: var(--nav-bg-color);
                 transition: height 0.2s ease-in-out;
+                border-radius: 0px 0px 0px 15px;
 
                 a {
                     padding: 0.4rem;
@@ -123,10 +160,14 @@ header {
             }
 
             .dropdown.show {
-                height: 24rem;
+                height: 25rem;
             }
         }
     }
+}
+
+main {
+    margin-top: 75px;
 }
 
 /* 4. DASHBOARD */
@@ -136,7 +177,6 @@ header {
     min-height: 90vh;
     gap: 1rem;
     padding: 1rem;
-    background-color: #fff;
     
     .dashboard__item {
         width: 100%;
