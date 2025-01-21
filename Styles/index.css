@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+US+Modern:wght@100..400&display=swap');
+
+:root {
+    --text-color: #ced0bb;
+    --input-bg-color: #929780;
+    --btn-bg-color: #929780;
+    --btn-text-color: #ced0bb;
+}
+
+body, html { 
+    overflow-x: hidden; 
+    overflow-y: hidden;
+    height: 100vh;
+}
+
+
+.text {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-color);
+}
+
+.inputbg {
+    background-color: var(--input-bg-color);
+}
+
+.loginBtn {
+    text-decoration: underline;
+}
+
 .loginPage {
     display: flex;
     justify-content: center;
@@ -24,11 +56,6 @@
     height: 75vh;
 }
 
-.inputToLogin {
-    display: flex;
-    flex-direction: column;
-}
-
 .containerimage {
     width: 100%;
     background-color: #afb49d;
@@ -36,10 +63,12 @@
 }
 
 .queote {
+    font-family: "Playwrite US Modern", serif;
+    font-weight: 550;
+    font-style: normal;
     margin-top: 100px;
-    font-size: 1.5em;
+    font-size: 25px;
     color: #3b4930;
-    font-weight: bold;
     text-align: center;
 }
 
