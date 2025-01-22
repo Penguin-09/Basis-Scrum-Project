@@ -1,3 +1,6 @@
+import { fetchGoals, storeUserWeekGoalInput } from "./weekGoals.js";
+
+
 const accountOptions= document.querySelector('header .account-options');
 const accountOptionsBtn = accountOptions.querySelector('button');
 
@@ -16,3 +19,5 @@ accountOptions.addEventListener('mouseout', (event) => {
     accountOptionsList.classList.remove('show');
 });
 
+fetchGoals();
+storeUserWeekGoalInput();
