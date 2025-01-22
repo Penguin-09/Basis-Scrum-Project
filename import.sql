@@ -1,12 +1,12 @@
-DROP DATABASE IF EXISTS Rhizome;
+DROP DATABASE IF EXISTS rhizome;
 
-CREATE DATABASE Rhizome;
+CREATE DATABASE rhizome;
 
-USE Rhizome;
+USE rhizome;
 
-CREATE TABLE `Accounts` (
+CREATE TABLE `accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `isAdmin` BOOLEAN NOT NULL,
   `class` INT(11) NULL,
@@ -18,7 +18,7 @@ CREATE TABLE `Accounts` (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `Classes` (
+CREATE TABLE `classes` (
   `classId` int(11) NOT NULL AUTO_INCREMENT,
   `homework` varchar(255) NOT NULL,
   `examName` varchar(255) NOT NULL,
@@ -31,7 +31,7 @@ INSERT INTO `Classes` (`classId`, `homework`, `examName`, `examDate`) VALUES
 (2, 'Rekenen Hoofdstuk 2 opdracht 3 af hebben', 'Engels examen', '2025-07-02'),
 (3, 'Geen huiswerk!', 'Nederlands examen', '2025-11-02');
 
-INSERT INTO `Accounts` (`name`, `password`, `isAdmin`, `class`, `completedModules`, `sickDays`, `confirmedAbsentDays`, `unconfirmedAbsentDays`, `lateDays`) VALUES
+INSERT INTO `Accounts` (`username`, `password`, `isAdmin`, `class`, `completedModules`, `sickDays`, `confirmedAbsentDays`, `unconfirmedAbsentDays`, `lateDays`) VALUES
 ('Son Bram van der Burg', 'testPassword', FALSE, 1, 'm1e5m2e2m3e1m7e2', 5, 1, 0, 0),
 ('Sven Hoeksema', 'sven', FALSE, 2, 'm1e5m2e1m4e5m5e2', 2, 0, 0, 2),
 ('Jadon Piereau', '12345', FALSE, 3, 'm1e5m2e2m3e4m6e2', 4, 0, 6, 3),

@@ -5,7 +5,7 @@
 
 // set access data
 $dbhost = 'localhost';
-$dbname = 'Nexed2';
+$dbname = 'Rhizome';
 $dbuser = 'bit_academy';
 $dbpass = 'bit_academy';
 $charset = 'utf8mb4';
