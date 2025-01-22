@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/dashboard.css">
-    <script src="../JS/dashboard.js" defer></script>
+    <script type="module" src="../JS/dashboard/dashboard.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Rhizome - Dashboard</title>
 </head>
 <body>
-    <header>
+    <header class="main-header">
         <div class="brand">
             <span>
                 Rhizome
@@ -50,13 +51,25 @@
     </header>
     <main>
         <div class="dashboard">
-            <div class="dashboard__item dashboard__week-goals">Weekdoelen</div>
-            <div class="dashboard__item dashboard__week-schedule">Weekrooster</div>
-            <div class="dashboard__item dashboard__overall-progress">Progressie opleiding</div>
-            <div class="dashboard__item dashboard__upcomming-exams">Aankomende examens</div>
-            <div class="dashboard__item dashboard__homework">Huiswerk</div>
-            <div class="dashboard__item dashboard__skills">Skills</div>
-            <div class="dashboard__item dashboard__presence">Presentie</div>
+            <section class="dashboard__week-goals flex flex-col justify-between p-5 rounded bg-gray-300">
+                <header class="p-0 text-xl">
+                    <h3>Weekdoelen</h3>
+                </header>
+                <form action="" class="flex flex-col justify-between">
+                    <ul data-form="goal-list" class="form-control__goal-list px-4 mt-6 mb-12 bg-white rounded-xl overflow-auto"></ul>
+                    <div class="form-control__add-goal grid grid-cols-12 gap-3">
+                        <input type="text" name="goal" id="goal" data-inputGoal="text" class="focus:outline-none md:col-span-8 col-span-12 rounded ps-3 py-2 bg-transparent order-2">
+                        <label for="goal" class="md:col-span-3 col-span-12 order-1" >Beschrijf je doel</label>
+                        <button type="submit" data-inputGoal="button" class="px-4 py-2 rounded md:col-span-4 col-span-12 order-3">Voeg toe</button>
+                    </div>
+                </form>
+            </section>
+            <section class="dashboard__week-schedule">Weekrooster</section>
+            <section class="dashboard__overall-progress">Progressie opleiding</section>
+            <section class="dashboard__upcomming-exams">Aankomende examens</section>
+            <section class="dashboard__homework">Huiswerk</section>
+            <section class="dashboard__skills">Skills</section>
+            <section class="dashboard__presence">Presentie</section>
         </div>
     </main>
     <footer></footer>

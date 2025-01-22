@@ -7,31 +7,41 @@
     padding: 0;
 }
 
-button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    /* outline: none; */
-}
-
 /* 2. GLOBAL */
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
+:root {
+    /* COLOR */
+    --nav-text-color: #d0d0b8;
+    --nav-bg-color: #3b4930;
+    --btn-bg-color: #d5d0ba;
+    --lvl-bg-color: #929780;
+    --btn-text-color: #404035;
+    
+    /* FONT SIZE */
+    --nav-font-size: 1.2rem;
+    
+    
+    /* FONT WEIGHT */
+    
+    
+    
+    /* BOX SHADOW */
+    
+    
+    
+    /* TEXT SHADOW */
+    
+    
+    
+    /* ... */
 }
 
 /* 3. MAIN HEADER */
-header {
+.main-header {
     height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-inline: 1rem;
-    background-color: lightgrey;
 
     .brand span {
         font-size: 1.5rem;
@@ -138,15 +148,82 @@ header {
     padding: 1rem;
     background-color: #fff;
     
-    .dashboard__item {
-        width: 100%;
-        height: 30rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
+    & > section {
+        min-height: 10rem;
         border: 1px solid black;
-        border-radius: 0.3rem;
-        background-color: lightgrey;
+        background-color: var(--nav-bg-color);
+        
+        header {
+            color: var(--nav-text-color);
+        }
+
+        ul li {
+            position: relative;
+
+            &:hover .remove-goal-item-btn {
+                opacity: 1;
+            }
+
+            .remove-goal-item-btn {
+                position: absolute;
+                top: -0.5rem;
+                right: -0.5rem;
+                opacity: 0;
+                padding: 0.3rem;
+                font-size: 1.2rem;
+                transition-property: 
+                    transform,
+                    opacity;
+                transition-duration: 0.2s;
+                transition-timing-function: ease-in-out;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+        
+        .form-control__add-goal {
+            position: relative;
+            color: var(--nav-text-color);
+            
+            label {
+                position: absolute;
+                top: 0.5rem;
+                left: 1rem;
+                background-color: var(--nav-bg-color);
+                transition: transform 0.2s ease-in-out;
+            }
+            
+            input {
+                border:1px solid var(--nav-text-color);
+            }
+            
+            input:focus + label {
+                transform: 
+                    translate(-1.7rem, -1.2rem) scale(0.9);
+            }
+
+            input:not(:focus):placeholder-shown + label {
+                transform: none;
+            }
+
+            button  {
+                border:1px solid var(--nav-text-color);
+                background-color: var(--btn-bg-color);
+                color: var(--btn-text-color);
+
+                &:hover {
+                    /* background-color: var(--); */
+                }
+            }
+        }
+    }
+
+    .dashboard__week-goals {
+
+        .form-control__goal-list input:checked + label {
+            text-decoration: line-through;
+        }
     }
 }
