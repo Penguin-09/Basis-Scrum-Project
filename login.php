@@ -15,7 +15,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         if ($user['username'] == $username && $user['password'] == $password) {
             $_SESSION['userLoggedIn'] = $user['id'];
 
-            header('Location: index.php');
+            header('Location: index.php?');
             exit();
         }
     }
