@@ -56,7 +56,6 @@ try {
         />
     </head>
     <body style="background-color: #929780">
-        <?php var_dump($username); ?>
         <div class="d-flex">
             <!-- Quote and image -->
             <div
