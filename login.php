@@ -2,29 +2,44 @@
 
 session_start();
 
-require_once 'db.php';
+try {
+    require_once 'db.php';
 
-$userDB = $pdo->query("SELECT id, username, password FROM accounts")->fetchAll();
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $username = trim($_POST['username']);
+        $password = $_POST['password'];
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+        if (empty($username) || empty($password)) {
+            throw new Exception('Please fill in all fields');
+        }
 
-    // Loop through every user in the DB
-    foreach ($userDB as $user) {
-        if ($user['username'] == $username && $user['password'] == $password) {
+        // Verify database connection
+        if (!$pdo) {
+            throw new Exception('Database connection failed');
+        }
+
+        // Prepare and execute the query
+        $stmt = $pdo->prepare("SELECT id, username, password FROM accounts WHERE username = :username");
+        $stmt->execute(['username' => $username]);
+        $user = $stmt->fetch();
+
+        if ($user && password_verify($password, $user['password'])) {            
             $_SESSION['userLoggedIn'] = $user['id'];
-
-            header('Location: index.php?');
+            $_SESSION['username'] = $user['username']; 
+            
+            header('Location: index.php');
+            exit();
+        } else {
+            $_SESSION['error'] = 'Invalid username or password';
+            header('Location: login.php');
             exit();
         }
     }
-
-    $errorMessage = 'Username and/or password is incorrect';
-    header('Location: login.php?error=' . $errorMessage);
+} catch (Exception $e) {
+    $_SESSION['error'] = $e->getMessage();
+    header('Location: login.php');
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>

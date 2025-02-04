@@ -1,6 +1,8 @@
 <?php
 
-include_once 'db.php';
+session_start();
+
+require_once 'db.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['userLoggedIn'])) {
@@ -9,12 +11,29 @@ if (!isset($_SESSION['userLoggedIn'])) {
 }
 
 // Get user data
-if (isset($_GET['userID'])) {
-    $userID = $_GET['userID'];
-
-    $userData = $pdo->query("SELECT username, isAdmin, class, completedModules, sickDays, confirmedAbsentDays, unconfirmedAbsentDays, lateDays FROM accounts WHERE id = $userID")->fetchAll();
+try {
+    if (isset($_GET['userID'])) {
+        $userID = $_GET['userID'];
+        
+        $stmt = $pdo->prepare("SELECT username, isAdmin, class, completedModules, 
+                              sickDays, confirmedAbsentDays, unconfirmedAbsentDays, 
+                              lateDays 
+                              FROM accounts 
+                              WHERE id = :userID");
+                              
+        $stmt->execute(['userID' => $userID]);
+        $userData = $stmt->fetch();
+        
+        if (!$userData) {
+            throw new Exception('User not found');
+        }
+    } else {
+        throw new Exception('No user ID provided');
+    }
+} catch (Exception $e) {
+    error_log("Error in index.php: " . $e->getMessage());
+    $error = "An error occurred while fetching user data";
 }
-
 ?>
 
 <!DOCTYPE html>
