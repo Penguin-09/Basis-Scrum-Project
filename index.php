@@ -101,6 +101,7 @@ try {
                             <p>Amount of unconfirmed absent days: <?php echo $unconfirmedAbsentDays; ?></p>
                             <p>Amount of late days: <?php echo $lateDays; ?></p>
                         </h2>
+                    </div>
                 </div>
 
                 <!-- COLUMN RIGHT -->
