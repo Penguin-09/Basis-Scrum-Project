@@ -86,14 +86,21 @@ try {
                 <!-- COLUMN MIDDLE -->
                 <div class="col-12 col-md-6 col-lg-5 h-100 Box">
                     <!-- Roster -->
-                    <div class="dashboard-card card-roster p-3 mb-3 rounded box">
-                        <h2 class="h4">Rooster</h2>
+                    <div class="dashboard-card card-roster p-3 mb-3 rounded">
+                        <h2 class="h4">Roster
+                            <br>
+                            Class: <?php echo $class ?>
+                        </h2>
                     </div>
 
                     <!-- Attendance -->
-                    <div class="dashboard-card card-attendance p-3 mb-3 rounded box">
-                        <h2 class="h4">Attendance</h2>
-                    </div>
+                    <div class="dashboard-card card-attendance p-3 rounded">
+                        <h2 class="h4">Attendance
+                            <p>Amount of sick days: <?php echo $sickDays; ?></p>
+                            <p>Amount of confirmed absent days: <?php echo $confirmedAbsentDays; ?></p>
+                            <p>Amount of unconfirmed absent days: <?php echo $unconfirmedAbsentDays; ?></p>
+                            <p>Amount of late days: <?php echo $lateDays; ?></p>
+                        </h2>
                 </div>
 
                 <!-- COLUMN RIGHT -->
