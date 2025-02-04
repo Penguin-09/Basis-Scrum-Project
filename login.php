@@ -32,54 +32,81 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Rhizome</title>
-        <link rel="stylesheet" href="Styles/login.css" />
-        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Rhizome | Login</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
     </head>
-    <body>
-       <main class="loginPage">
+    <body style="background-color: #929780">
+        <div class="d-flex">
             <!-- Quote and image -->
-            <div class="containerimage">
-                <div class="layoutImage row">
-                    <div>
-                        <h1 class="quote">"Growth is just the beginning"</h1>
-                        <img src="images/womanWatering.png" alt="WomanWatering">
-                    </div>
-                </div>
+            <div
+                class="col-lg-6 d-flex justify-content-center align-items-center flex-column rounded"
+                style="height: 100vh; background-color: #afb49d"
+            >
+                <h2 style="color: #3b4930">"Growth is just the beginning"</h2>
+
+                <img
+                    src="images/womanWatering.png"
+                    alt="watering"
+                    style="width: 70%"
+                />
             </div>
 
-            <!-- Login form -->
-            <section class="loginRegister">
-                <div class="flex items-center justify-center">
-                    <div class="loginTextContainer rounded-lg flex flex-col justify-evenly text p-3">
-                        <a href="#" class="flex items-center mb-6 mt-2">
-                            <img class="h-auto max-w-full rounded-lg" src="images/Logo.png" alt="logo">    
-                        </a>
+            <div
+                class="d-flex justify-content-center align-items-center text-light"
+                style="width: 100%"
+            >
+                <!-- Form -->
+                <div
+                    class="d-flex align-items-center flex-column rounded p-3"
+                    style="background-color: #3b4930; width: min-content;"
+                >
+                    <img src="images/logo.png" alt="logo" style="width: 300px" />
 
-                        <h1 class="text-2xl">
-                            Login to your account
-                        </h1>
+                    <p class="py-4">Sign into your account</p>
 
-                        <form class="flex flex-col w-72" action="#" method="POST">
-                            <div class="p-2 flex flex-col">
-                                <label for="Name" class="text-lg mb-1">Your name</label>
-                                <input class="p-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" type="text" name="username" id="username" placeholder="John">
-                            </div>
+                    <form method="post">
+                        <!-- Name -->
+                        <div class="d-flex flex-column">
+                            <label for="name">Your name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                placeholder="name"
+                                class="rounded-pill p-1"
+                            />
+                        </div>
 
-                            <div class="p-2 flex flex-col">
-                                <label for="password" class="text-lg mb-1">Password</label>
-                                <input class="p-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" type="password" name="password" id="password" placeholder="••••••••">
-                            </div>
+                        <!-- Password -->
+                        <div class="d-flex flex-column py-3">
+                            <label for="password">Your Password</label>
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                placeholder="••••••••"
+                                class="rounded-pill p-1"
+                            />
+                        </div>
 
-                            <div class="flex justify-center mt-6">
-                                <button type="submit" class="w-full py-3 px-6 bg-[#929780] text-white text-lg font-semibold rounded-full shadow-md hover:bg-[#e87444] transition duration-300">
-                                    Login
-                                </button>
-                            </div>
-                        </form>                
-                    </div>
+                        <!-- Submit -->
+                        <div class="d-flex flex-column pt-3">
+                            <button type="submit" class="btn btn-light rounded-pill">Login</button>
+                        </div>
+                    </form>
                 </div>
-            </section>
-       </main>
+            </div>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
     </body>
 </html>
