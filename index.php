@@ -106,7 +106,7 @@ if (isset($error)) {
                 <!-- COLUMN MIDDLE -->
                 <div class="col-12 col-md-6 col-lg-5 h-100 Box">
                     <!-- Roster -->
-                    <div class="dashboard-card card-roster p-3 mb-3 rounded">
+                    <div class="dashboard-card card-roster p-3 mb-3 rounded box">
                         <h2 class="h4">Roster
                             <br>
                             Class: <?php echo $class ?>
@@ -114,7 +114,7 @@ if (isset($error)) {
                     </div>
 
                     <!-- Attendance -->
-                    <div class="dashboard-card card-attendance p-3 rounded">
+                    <div class="dashboard-card card-attendance p-3 rounded box">
                         <h2 class="h4">Attendance
                             <p>Amount of sick days: <?php echo $sickDays; ?></p>
                             <p>Amount of confirmed absent days: <?php echo $confirmedAbsentDays; ?></p>
