@@ -81,7 +81,5 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 </div>
             </section>
        </main>
-
-        <script src="JS/index.js"></script>
     </body>
 </html>

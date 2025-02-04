@@ -1,3 +1,22 @@
+<?php
+
+include_once 'db.php';
+
+// Check if user is logged in
+if (!isset($_SESSION['userLoggedIn'])) {
+    header('Location: login.php');
+    exit();
+}
+
+// Get user data
+if (isset($_GET['userID'])) {
+    $userID = $_GET['userID'];
+
+    $userData = $pdo->query("SELECT username, isAdmin, class, completedModules, sickDays, confirmedAbsentDays, unconfirmedAbsentDays, lateDays FROM accounts WHERE id = $userID")->fetchAll();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
