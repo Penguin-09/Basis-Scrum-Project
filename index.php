@@ -12,28 +12,48 @@ if (!isset($_SESSION['userLoggedIn'])) {
 
 // Get user data
 try {
-    if (isset($_GET['userID'])) {
-        $userID = $_GET['userID'];
-        
+    if (isset($_SESSION['userLoggedIn'])) {
+        $userID = intval($_SESSION['userLoggedIn']);
+
+        if (!isset($pdo)) {
+            throw new Exception('Database connection is not initialized');
+        }
+
         $stmt = $pdo->prepare("SELECT username, isAdmin, class, completedModules, 
-                              sickDays, confirmedAbsentDays, unconfirmedAbsentDays, 
-                              lateDays 
-                              FROM accounts 
-                              WHERE id = :userID");
-                              
+                                    sickDays, confirmedAbsentDays, unconfirmedAbsentDays, lateDays
+                               FROM accounts 
+                               WHERE id = :userID");
         $stmt->execute(['userID' => $userID]);
         $userData = $stmt->fetch();
-        
+
         if (!$userData) {
             throw new Exception('User not found');
         }
+
+        // Give the user data to variables
+        $username = $userData['username'] ?? 'Unknown';
+        $isAdmin = $userData['isAdmin'] ?? 0;
+        $class = $userData['class'] ?? 'N/A';
+        $completedModules = $userData['completedModules'] ?? 0;
+        $sickDays = $userData['sickDays'] ?? 0;
+        $confirmedAbsentDays = $userData['confirmedAbsentDays'] ?? 0;
+        $unconfirmedAbsentDays = $userData['unconfirmedAbsentDays'] ?? 0;
+        $lateDays = $userData['lateDays'] ?? 0;
+
     } else {
         throw new Exception('No user ID provided');
     }
 } catch (Exception $e) {
     error_log("Error in index.php: " . $e->getMessage());
-    $error = "An error occurred while fetching user data";
+    echo "<p class='error'>Error: " . $e->getMessage() . "</p>";
 }
+
+
+// Display error if it exists
+if (isset($error)) {
+    echo "<p class='error'>$error</p>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +80,7 @@ try {
             </nav>
 
             <!-- Profile -->
-            <div class="mt-2 mt-sm-0">Profile placeholder</div>
+            <div class="mt-2 mt-sm-0"><?php echo $username; ?></div>
         </header>
 
         <main class="container-fluid p-3">

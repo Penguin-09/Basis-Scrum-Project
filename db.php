@@ -5,7 +5,7 @@
 
 // Constants for database configuration
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'Rhizome');
+define('DB_NAME', 'rhizome');
 define('DB_USER', 'bit_academy');
 define('DB_PASS', 'bit_academy');
 define('DB_CHARSET', 'utf8mb4');
