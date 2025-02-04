@@ -6,7 +6,7 @@ require_once 'db.php';
 
 try {
     if (isset($_POST['username']) && isset($_POST['password'])) {
-        $username = trim($_POST['username']);
+        $username = $_POST['username'];
         $password = $_POST['password'];
 
         if (empty($username) || empty($password)) {
@@ -23,7 +23,7 @@ try {
         $stmt->execute(['username' => $username]);
         $user = $stmt->fetch();
 
-        if ($user && password_verify($password, $user['password'])) {            
+        if ($user && $password) {            
             $_SESSION['userLoggedIn'] = $user['id'];
             $_SESSION['username'] = $user['username']; 
             
@@ -56,6 +56,7 @@ try {
         />
     </head>
     <body style="background-color: #929780">
+        <?php var_dump($username); ?>
         <div class="d-flex">
             <!-- Quote and image -->
             <div
@@ -84,15 +85,15 @@ try {
 
                     <p class="py-4">Sign into your account</p>
 
-                    <form method="post">
+                    <form method="post" action="login.php">
                         <!-- Name -->
                         <div class="d-flex flex-column">
-                            <label for="name">Your name</label>
+                            <label for="username">Your name</label>
                             <input
                                 type="text"
-                                name="name"
-                                id="name"
-                                placeholder="name"
+                                name="username"
+                                id="username"
+                                placeholder="username"
                                 class="rounded-pill p-1"
                             />
                         </div>
@@ -122,6 +123,6 @@ try {
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
-        ></script>
+        ></script>  
     </body>
 </html>
