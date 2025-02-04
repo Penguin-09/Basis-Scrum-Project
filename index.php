@@ -43,116 +43,68 @@ try {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Rhizome | Dashboard</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-        <style>
-            html, body {
-                height: 100%;
-                margin: 0;
-            }
-            
-            body {
-                display: flex;
-                flex-direction: column;
-            }
-            
-            main {
-                flex: 1;
-                min-height: 0;
-            }
-
-            .dashboard-card {
-                background-color: #3b4930;
-            }
-
-            .card-weekgoals {
-                height: 25%;
-            }
-            .card-exams {
-                height: 30%;
-            }
-            .card-skills {
-                height: 45%;
-            }
-
-            .card-roster {
-                height: 62%;
-            }
-            .card-attendance {
-                height: 38%;
-            }
-
-            .card-progress {
-                height: 40%;
-            }
-            .card-homework {
-                height: 60%;
-            }
-
-            footer {
-                margin-top: auto;
-            }
-        </style>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/index.css">
     </head>
-    <body class="text-white" style="background-color: #f9f8f4">
+    <body>
         <!-- HEADER -->
-        <header class="d-flex flex-column flex-sm-row justify-content-between align-items-center p-2 p-sm-3" style="background-color: #3b4930">
+        <header class="d-flex flex-column flex-sm-row justify-content-between align-items-center p-2 p-sm-3">
             <!-- Logo -->
             <img src="images/logo.png" alt="Rhizome Logo" class="img-fluid mb-2 mb-sm-0" style="height: 3rem" />
 
             <!-- Navigation -->
             <nav class="d-flex flex-wrap justify-content-center">
-                <a class="m-2 text-decoration-none text-white" href="#">Home</a>
-                <a class="m-2 text-decoration-none text-white" href="#">Tree</a>
-                <a class="m-2 text-decoration-none text-white" href="#">Reviews</a>
-                <a class="m-2 text-decoration-none text-white" href="#">Ontwikkeling</a>
+                <a class="m-2 text-decoration-none fs-4" href="#">Home</a>
+                <a class="m-2 text-decoration-none fs-4" href="#">Tree</a>
+                <a class="m-2 text-decoration-none fs-4" href="#">Reviews</a>
+                <a class="m-2 text-decoration-none fs-4" href="#">Ontwikkeling</a>
             </nav>
 
             <!-- Profile -->
             <div class="mt-2 mt-sm-0">Profile placeholder</div>
         </header>
 
-        <main class="container-fluid py-3">
-            <div class="row h-100">
+        <main class="container-fluid p-3">
+            <div class="row h-100 g-3">
                 <!-- COLUMN LEFT -->
                 <div class="col-12 col-md-6 col-lg-4 h-100">
                     <!-- Week Goals -->
-                    <div class="dashboard-card card-weekgoals p-3 mb-3 rounded">
-                        <h2 class="h4">Week Goals</h2>
+                    <div class="dashboard-card card-weekgoals p-3 mb-3 rounded box">
+                        <h2 class="h4">Week Goals</h2>                     
                     </div>
 
                     <!-- Exams -->
-                    <div class="dashboard-card card-exams p-3 mb-3 rounded">
+                    <div class="dashboard-card card-exams p-3 mb-3 rounded box">
                         <h2 class="h4">Exams</h2>
                     </div>
 
                     <!-- Skills -->
-                    <div class="dashboard-card card-skills p-3 rounded">
+                    <div class="dashboard-card card-skills p-3 mb-3 rounded box">
                         <h2 class="h4">Skills</h2>
                     </div>
                 </div>
 
                 <!-- COLUMN MIDDLE -->
-                <div class="col-12 col-md-6 col-lg-5 h-100">
+                <div class="col-12 col-md-6 col-lg-5 h-100 Box">
                     <!-- Roster -->
-                    <div class="dashboard-card card-roster p-3 mb-3 rounded">
-                        <h2 class="h4">Roster</h2>
+                    <div class="dashboard-card card-roster p-3 mb-3 rounded box">
+                        <h2 class="h4">Rooster</h2>
                     </div>
 
                     <!-- Attendance -->
-                    <div class="dashboard-card card-attendance p-3 rounded">
+                    <div class="dashboard-card card-attendance p-3 mb-3 rounded box">
                         <h2 class="h4">Attendance</h2>
                     </div>
                 </div>
 
                 <!-- COLUMN RIGHT -->
-                <div class="col-12 col-md-12 col-lg-3 h-100">
+                <div class="col-12 col-md-12 col-lg-3 h-100 Box">
                     <!-- Progress -->
-                    <div class="dashboard-card card-progress p-3 mb-3 rounded">
+                    <div class="dashboard-card card-progress p-3 mb-3 rounded box">
                         <h2 class="h4">Progress</h2>
                     </div>
 
                     <!-- Homework -->
-                    <div class="dashboard-card card-homework p-3 rounded">
+                    <div class="dashboard-card card-homework p-3 mb-3 rounded box">
                         <h2 class="h4">Homework</h2>
                     </div>
                 </div>
