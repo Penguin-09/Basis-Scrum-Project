@@ -2,9 +2,9 @@
 
 session_start();
 
-try {
-    require_once 'db.php';
+require_once 'db.php';
 
+try {
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $username = trim($_POST['username']);
         $password = $_POST['password'];
@@ -27,17 +27,17 @@ try {
             $_SESSION['userLoggedIn'] = $user['id'];
             $_SESSION['username'] = $user['username']; 
             
-            header('Location: index.php');
+            header("Location: index.php");
             exit();
         } else {
             $_SESSION['error'] = 'Invalid username or password';
-            header('Location: login.php');
+            header("Location: login.php");
             exit();
         }
     }
 } catch (Exception $e) {
     $_SESSION['error'] = $e->getMessage();
-    header('Location: login.php');
+    header("Location: login.php");
     exit();
 }
 ?>
