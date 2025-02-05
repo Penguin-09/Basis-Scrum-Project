@@ -93,10 +93,21 @@ if (isset($error)) {
             </nav>
 
             <!-- Profile -->
-            <div class="d-flex mt-2 mt-sm-0">
-                <p class="p-2 px-5 me-2 rounded-pill" style="background-color: #d5d0ba; color: #210720"><?= XPCalculator($completedModules) ?> XP</p>
+            <div class="d-flex justify-content-between align-items-center mt-2 mt-sm-0">
+                <p class="p-2 px-5 me-2 mb-0 rounded-pill" style="background-color: #d5d0ba; color: #210720"><?= XPCalculator($completedModules) ?> XP</p>
 
-                <p><?= $username; ?></p>
+                <p>
+                    <div class="btn-group buttonNavColor">
+                        <button type="button" class="btn dropdown-toggle buttonNavColor" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                            <?= $username; ?>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-lg-end buttonNavColor">
+                            <li><button class="dropdown-item buttonNavColorDr" type="button">Change Avatar</button></li>
+                            <li><button class="dropdown-item buttonNavColorDr" type="button">Settings</button></li>
+                            <li><button class="dropdown-item buttonNavColorDr" type="button">Log Out</button></li>
+                        </ul>
+                    </div>
+                </p>
             </div>
         </header>
 
@@ -124,10 +135,64 @@ if (isset($error)) {
                 <div class="col-12 col-md-6 col-lg-5 h-100 Box">
                     <!-- Roster -->
                     <div class="dashboard-card card-roster p-3 mb-3 rounded box">
-                        <h2 class="h4">Roster
-                            <br>
-                            Class: <?php echo $class ?>
-                        </h2>
+                        <h2 class="h4">Roster</h2>
+                        <p>Class: <?php echo $class ?></p>
+                        <table class="tableColor fs-6">
+                            <thead class="rounded">
+                                <tr>
+                                    <th class="p-2 border-bottom border-end">Time</th>
+                                    <th class="p-2 border-bottom border-end">09:00</th>
+                                    <th class="p-2 border-bottom border-end">10:00</th>
+                                    <th class="p-2 border-bottom border-end">11:00</th>
+                                    <th class="p-2 border-bottom border-end">12:00</th>
+                                    <th class="p-2 border-bottom border-end">13:00</th>
+                                    <th class="p-2 border-bottom border-end">14:00</th>
+                                    <th class="p-2 border-bottom border-end">15:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2 border-bottom border-end">Monday</td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end">EN</td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"> </td>
+                                    <td class="p-2 border-bottom border-end">RE</td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border-bottom border-end">Tuesday</td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end">NL</td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border-bottom border-end">Wednesday</td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end">EN</td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end">BS</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border-bottom border-end">Thursday</td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                    <td class="p-2 border-bottom border-end">NL</td>
+                                    <td class="p-2 border-bottom border-end"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <!-- Attendance -->

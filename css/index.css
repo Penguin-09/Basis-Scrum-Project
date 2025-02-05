@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+US+Modern:wght@100..400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+US+Modern:wght@100..400&display=swap');
 
 :root {
     --nav-bg-color: #3b4930;
@@ -8,8 +7,8 @@
     --box-text-color: #3c3b31;
     --button-bg-color: #413d32;
     --button-bg-textcolor: #d5d0ba;
-    --items-bg-color: #d17fc7;
-    --items-text-color: #210720;
+    --items-bg-color: #afb49d;
+    --items-text-color: #67775a;
 }
 
 html, body {
@@ -51,12 +50,33 @@ main {
     border: solid 2px var(--box-text-color);
 }
 
-.btnBgText {
-    background-color: var(--button-bg-color);
-    color: var(--button-bg-textcolor);
-    border: solid 2px var(--button-bg-textcolor);
-    padding: 8px;
-    border-radius: 8px;
+main table {
+    background-color: var(--items-bg-color) !important;
+    color: var(--items-text-color) !important;
+    border: solid 2px var(--items-text-color);
+}
+
+.buttonNavColor {
+    background-color: var(--nav-bg-color);
+    color: var(--nav-text-color);
+}
+
+.buttonNavColor {
+    background-color: var(--nav-bg-color);
+    color: var(--nav-text-color);
+    border-color: var(--nav-bg-color);
+}
+
+.buttonNavColorDr {
+    background-color: var(--nav-bg-color);
+    color: var(--nav-text-color);
+    border-color: var(--nav-bg-color);
+}
+
+.buttonNavColorDr:hover {
+    background-color: var(--nav-text-color);
+    color: var(--nav-bg-color);
+    border-color: var(--nav-text-color);
 }
 
 .card-weekgoals {
