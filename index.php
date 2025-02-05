@@ -48,6 +48,19 @@ try {
     echo "<p class='error'>Error: " . $e->getMessage() . "</p>";
 }
 
+// Calculate XP
+function XPCalculator($completedModules) {
+    $xp = 0;
+    preg_match_all('/e(\d+)/', $completedModules, $matches);
+
+    $integers = $matches[1];
+
+    for($i = 0; $i < count($integers); $i++) {
+        $xp += $integers[$i] * 10;
+    }
+    return $xp;
+}
+
 
 // Display error if it exists
 if (isset($error)) {
@@ -80,7 +93,11 @@ if (isset($error)) {
             </nav>
 
             <!-- Profile -->
-            <div class="mt-2 mt-sm-0"><?php echo $username; ?></div>
+            <div class="d-flex mt-2 mt-sm-0">
+                <p class="p-2 px-5 me-2 rounded-pill" style="background-color: #d5d0ba; color: #210720"><?= XPCalculator($completedModules) ?> XP</p>
+
+                <p><?= $username; ?></p>
+            </div>
         </header>
 
         <main class="container-fluid p-3">
