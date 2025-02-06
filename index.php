@@ -61,6 +61,11 @@ function XPCalculator($completedModules) {
     return $xp;
 }
 
+if (isset($_POST['logout'])) {
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
 
 // Display error if it exists
 if (isset($error)) {
@@ -104,7 +109,7 @@ if (isset($error)) {
                         <ul class="dropdown-menu dropdown-menu-lg-end buttonNavColor">
                             <li><button class="dropdown-item buttonNavColorDr" type="button">Change Avatar</button></li>
                             <li><button class="dropdown-item buttonNavColorDr" type="button">Settings</button></li>
-                            <li><button class="dropdown-item buttonNavColorDr" type="button">Log Out</button></li>
+                            <li><button class="dropdown-item buttonNavColorDr" type="button" name="logout">Log Out</button></li>
                         </ul>
                     </div>
                 </p>
