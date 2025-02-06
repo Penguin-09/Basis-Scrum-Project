@@ -41,6 +41,7 @@ try {
         $confirmedAbsentDays = $userData['confirmedAbsentDays'] ?? 0;
         $unconfirmedAbsentDays = $userData['unconfirmedAbsentDays'] ?? 0;
         $lateDays = $userData['lateDays'] ?? 0;
+        $totalDays = 30;
 
         // Class data
         $homework = $userData['homework'] ?? 'N/A';
@@ -107,6 +108,68 @@ function generatePieChart($progress) {
                 
                 <!-- Progress text -->
                 <text x='50%' y='50%' text-anchor='middle' dy='.3em' font-size='28px' fill='#333' font-weight='bold'>$percentage%</text>
+            </svg>
+        </div>
+    ";
+}
+
+function generateAttendancePieChart($sickDays, $confirmedAbsentDays, $unconfirmedAbsentDays, $lateDays, $totalDays = 30) {
+    $goodDays = $totalDays - ($sickDays + $confirmedAbsentDays + $unconfirmedAbsentDays + $lateDays);
+
+    // Define the data
+    $data = [
+        "Sick Days" => ["value" => $sickDays, "color" => "#3b4930"], // Dark Green (nav-bg-color)
+        "Confirmed Absent" => ["value" => $confirmedAbsentDays, "color" => "#afb49d"], // Gray Green (items-bg-color)
+        "Unconfirmed Absent" => ["value" => $unconfirmedAbsentDays, "color" => "#cdcdb5"], // Beige (nav-text-color)
+        "Late Days" => ["value" => $lateDays, "color" => "#413d32"], // Olive (items-text-color)
+        "Good Days" => ["value" => $goodDays, "color" => "#67775a"] // Light Beige (box-bg-color)
+    ];
+
+    $radius = 90;
+    $center = 100;
+    $circumference = 2 * M_PI * $radius;
+    $total = $totalDays;
+    $startAngle = 220;
+    $svgPaths = "";
+
+    // Generate pie chart slices with hover tooltips
+    foreach ($data as $label => $info) {
+        if ($info["value"] > 0) {
+            $percentage = ($info["value"] / $total) * 100;
+            $sweep = ($percentage / 100) * 360;
+            $endAngle = $startAngle + $sweep;
+
+            // Convert angles to radians
+            $startRadians = deg2rad($startAngle);
+            $endRadians = deg2rad($endAngle);
+
+            // Calculate coordinates
+            $x1 = $center + $radius * cos($startRadians);
+            $y1 = $center + $radius * sin($startRadians);
+            $x2 = $center + $radius * cos($endRadians);
+            $y2 = $center + $radius * sin($endRadians);
+
+            // Determine if the arc is greater than 180 degrees
+            $largeArc = ($sweep > 180) ? 1 : 0;
+
+            // SVG path with hover tooltip
+            $svgPaths .= "
+                <path d='M$center,$center L$x1,$y1 A$radius,$radius 0 $largeArc,1 $x2,$y2 Z' 
+                    fill='{$info["color"]}' stroke='#d5d0ba' stroke-width='2'>
+                    <title>$label: {$info["value"]} days</title>
+                </path>
+            ";
+
+            $startAngle = $endAngle;
+        }
+    }
+
+    return "
+        <div class='progress-container'>
+            <svg width='320' height='320' viewBox='0 0 200 200'>
+                $svgPaths
+                <circle cx='$center' cy='$center' r='50' fill='#d5d0ba' />
+                <text x='50%' y='50%' text-anchor='middle' dy='.3em' font-size='14px' font-weight='bold' fill='#333'>Attendance</text>
             </svg>
         </div>
     ";
@@ -259,14 +322,19 @@ if (isset($error)) {
                         </div>
                     </div>
 
-                    <!-- Attendance -->
-                    <div class="dashboard-card card-attendance p-3 rounded box">
-                        <h2 class="h4">Attendance
+                    <!-- Attendance Card -->
+                    <div class="dashboard-card card-attendance p-3 rounded box d-flex">
+                        <div class="container">
+                            <h2 class="h4 text-center">Attendance</h2>
                             <p>Amount of sick days: <?php echo $sickDays; ?></p>
                             <p>Amount of confirmed absent days: <?php echo $confirmedAbsentDays; ?></p>
                             <p>Amount of unconfirmed absent days: <?php echo $unconfirmedAbsentDays; ?></p>
                             <p>Amount of late days: <?php echo $lateDays; ?></p>
-                        </h2>
+                            <p>Amount of good days: <?php echo ($totalDays - ($sickDays + $confirmedAbsentDays + $unconfirmedAbsentDays + $lateDays)); ?></p>
+                        </div>
+                        <div class="container">
+                            <?= generateAttendancePieChart($sickDays, $confirmedAbsentDays, $unconfirmedAbsentDays, $lateDays, $totalDays); ?>
+                        </div>
                     </div>
                 </div>
 
