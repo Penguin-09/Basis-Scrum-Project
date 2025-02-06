@@ -240,14 +240,44 @@ if (isset($error)) {
                 <div class="col-12 col-md-6 col-lg-4 h-100">
                     <!-- Week Goals -->
                     <div class="dashboard-card card-weekgoals p-3 mb-3 rounded box">
-                        <h2 class="h4">Week Goals</h2>                     
+                        <h2 class="h4">Week Goals</h2>
+                        <form class="form-inline row mx-1">
+                            <input class="col-10 searchInput p-2" type="search" placeholder="Your Goal" aria-label="Search">
+                            <button class="col-2 searchSubmit p-2 btn" type="submit">Add</button>
+                        </form>             
                     </div>
 
                     <!-- Exams -->
                     <div class="dashboard-card card-exams p-3 mb-3 rounded box">
                         <h2 class="h4">Upcoming Exam</h2>
-
-                        <p>[ <?= $examName ?>] [ <?= $examDate ?> ]</p>
+                        <div class="d-flex justify-content-center">
+                            <table class="tableColor fs-6">
+                                <thead class="rounded">
+                                    <tr>
+                                        <th class="p-1 border-bottom border-end">Subject</th>
+                                        <th class="p-1 border-bottom border-end">Location</th>
+                                        <th class="p-1 border-bottom border-end">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-1 border-bottom border-end">Math</td>
+                                        <td class="p-1 border-bottom border-end">ROC - Zuidoost</td>
+                                        <td class="p-1 border-bottom border-end"><?= $examDate ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-1 border-bottom border-end">Engels</td>
+                                        <td class="p-1 border-bottom border-end">-</td>
+                                        <td class="p-1 border-bottom border-end">-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-1 border-bottom border-end">Dutch</td>
+                                        <td class="p-1 border-bottom border-end">-</td>
+                                        <td class="p-1 border-bottom border-end">-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <!-- Skills -->

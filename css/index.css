@@ -83,6 +83,20 @@ main table {
     border-color: var(--nav-text-color);
 }
 
+.searchInput {
+    border-radius: 15px 0px 0px 15px;
+    background-color: var(--items-bg-color) !important;
+    color: var(--items-text-color) !important;
+    border: solid 2px var(--items-text-color);
+}
+
+.searchSubmit {
+    border-radius: 0px 15px 15px 0px;
+    background-color: var(--nav-bg-color) !important;
+    color: var(--nav-text-color) !important;
+    border: solid 2px var(--items-text-color);
+}
+
 .card-weekgoals {
     height: 25%;
 }
