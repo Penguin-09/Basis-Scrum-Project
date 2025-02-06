@@ -173,6 +173,27 @@ function generateAttendancePieChart($sickDays, $confirmedAbsentDays, $unconfirme
 
 $totalProgress = calculateTotalProgress(XPCalculator($completedModules));
 
+// Calculate profficiency for each track
+function calculateProfficiency ($completedModules, $moduleStart) {
+    $profficiency = 0;
+
+    for ($i = $moduleStart; $i <= ($moduleStart + 2); $i++) {
+        if (strpos($completedModules, "e$i") !== false) {
+            $profficiency += 33.33;
+        }
+    }
+
+    if ($profficiency > 99) {
+        $profficiency = 100;
+    }
+
+    return $profficiency;
+}
+
+$backEndProfficiency = calculateProfficiency($completedModules, 1);
+$frontEndProfficiency = calculateProfficiency($completedModules, 4);
+$dataAnalystProfficiency = calculateProfficiency($completedModules, 7);
+
 if (isset($_POST['logout'])) {
     session_destroy();
     header("Location: login.php");
@@ -266,11 +287,6 @@ if (isset($error)) {
                                         <td class="p-1 border-bottom border-end">-</td>
                                         <td class="p-1 border-bottom border-end">-</td>
                                     </tr>
-                                    <tr>
-                                        <td class="p-1 border-bottom border-end">Dutch</td>
-                                        <td class="p-1 border-bottom border-end">-</td>
-                                        <td class="p-1 border-bottom border-end">-</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -279,6 +295,21 @@ if (isset($error)) {
                     <!-- Skills -->
                     <div class="dashboard-card card-skills p-3 mb-3 rounded box">
                         <h2 class="h4">Skills</h2>
+
+                        <h5>Back-end web development</h5>
+                        <div class="progress" style="background-color: #afb49d">
+                            <div class="progress-bar" role="progressbar" style="width: <?= $backEndProfficiency ?>%; background-color: #3b4930; color: #d5d0ba" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $backEndProfficiency ?>%</div>
+                        </div>
+
+                        <h5>Front-end web development</h5>
+                        <div class="progress" style="background-color: #afb49d">
+                            <div class="progress-bar" role="progressbar" style="width: <?= $frontEndProfficiency ?>%; background-color: #3b4930; color: #d5d0ba" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $frontEndProfficiency ?>%</div>
+                        </div>
+
+                        <h5>Data analyst</h5>
+                        <div class="progress" style="background-color: #afb49d">
+                            <div class="progress-bar" role="progressbar" style="width: <?= $dataAnalystProfficiency ?>%; background-color: #3b4930; color: #d5d0ba" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?= $dataAnalystProfficiency ?>%</div>
+                        </div>
                     </div>
                 </div>
 
