@@ -54,35 +54,83 @@ try {
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
         />
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+US+Modern:wght@100..400&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap');
+
+            :root {
+                --nav-bg-color: #3b4930;
+                --nav-text-color: #cdcdb5;
+                --box-bg-color: #929780;
+                --box-text-color: #3c3b31;
+                --button-bg-color: #413d32;
+                --button-text-color: #d5d0ba;
+                --items-bg-color: #afb49d;
+                --items-text-color: #67775a;
+            }
+
+            body {
+                height: 100vh;
+                font-family: "PT Serif", serif;
+                font-weight: 400;
+                font-style: normal;
+                color: var(--nav-text-color);
+                background-color: var(--box-bg-color);
+            }
+
+            button, .inputT {
+                background-color: var(--button-bg-color);
+                color: var(--button-text-color);
+                border-color: var(--button-text-color);
+            }
+
+            .onBox {
+                border-radius: 0px 35px 35px 0px;
+                color: var(--items-text-color);
+                background-color: var(--items-bg-color);
+                height: 100vh;
+            }
+
+            .formColor {
+                background-color: var(--nav-bg-color);
+                color: var(--nav-text-color);
+            }
+
+            .quoteText {
+                font-family: "Playwrite US Modern", serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+            }
+        </style>
     </head>
-    <body style="background-color: #929780">
+    <body>
         <div class="d-flex">
             <!-- Quote and image -->
             <div
-                class="col-lg-6 d-flex justify-content-center align-items-center flex-column rounded"
-                style="height: 100vh; background-color: #afb49d"
+                class="col-lg-6 d-flex justify-content-center align-items-center flex-column onBox"
             >
-                <h2 style="color: #3b4930">"Growth is just the beginning"</h2>
+                <h2 class="quoteText">"Growth is just the beginning"</h2>
 
                 <img
                     src="images/womanWatering.png"
                     alt="watering"
                     style="width: 70%"
+                    class="mt-5"
                 />
             </div>
 
             <div
-                class="d-flex justify-content-center align-items-center text-light"
+                class="d-flex justify-content-center align-items-center p-2"
                 style="width: 100%"
             >
                 <!-- Form -->
                 <div
-                    class="d-flex align-items-center flex-column rounded p-3"
-                    style="background-color: #3b4930; width: min-content;"
+                    class="d-flex align-items-center flex-column rounded-3 p-3 formColor"
                 >
-                    <img src="images/logo.png" alt="logo" style="width: 300px" />
+                    <img src="images/logo.png" alt="logo" style="width: 300px" class="p-2" />
 
-                    <p class="py-4">Sign into your account</p>
+                    <p class="py-3">Sign into your account</p>
 
                     <form method="post" action="login.php">
                         <!-- Name -->
@@ -92,8 +140,8 @@ try {
                                 type="text"
                                 name="username"
                                 id="username"
-                                placeholder="username"
-                                class="rounded-pill p-1"
+                                placeholder="Username"
+                                class="inputT rounded-pill p-2"
                             />
                         </div>
 
@@ -105,13 +153,13 @@ try {
                                 name="password"
                                 id="password"
                                 placeholder="••••••••"
-                                class="rounded-pill p-1"
+                                class="inputT rounded-pill p-2"
                             />
                         </div>
 
                         <!-- Submit -->
                         <div class="d-flex flex-column pt-3">
-                            <button type="submit" class="btn btn-light rounded-pill">Login</button>
+                            <button type="submit" class="rounded-pill border-2 p-2">Login</button>
                         </div>
                     </form>
                 </div>

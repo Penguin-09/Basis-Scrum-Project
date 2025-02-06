@@ -1,4 +1,26 @@
-a {
-    text-decoration: none;
-    color: inherit;
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+US+Modern:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap');
+
+:root {
+    --nav-bg-color: #3b4930;
+    --nav-text-color: #cdcdb5;
+    --box-bg-color: #d5d0ba;
+    --box-text-color: #3c3b31;
+    --button-bg-color: #413d32;
+    --button-bg-textcolor: #d5d0ba;
+    --items-bg-color: #afb49d;
+    --items-text-color: #67775a;
+}
+
+.pt-serif-regular {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.quoteText {
+    font-family: "Playwrite US Modern", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
