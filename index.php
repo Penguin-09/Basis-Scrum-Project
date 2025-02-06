@@ -404,7 +404,7 @@ if (isset($error)) {
                         <h2 class="h4">Progress</h2>
                         <div class="container justify-content-center d-flex flex-column align-items-center">
                             <?= generatePieChart($totalProgress); ?>
-                            <h2>Software Development</h2>
+                            <h2 class="fs-6">Software Development</h2>
                         </div>
                     </div>
 
