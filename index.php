@@ -178,13 +178,13 @@ function calculateProfficiency ($completedModules, $moduleStart) {
     $profficiency = 0;
 
     for ($i = $moduleStart; $i <= ($moduleStart + 2); $i++) {
-        if (strpos($completedModules, "e$i") !== false) {
-            $profficiency += 33.33;
+        if (strpos($completedModules, "m$i") !== false) {
+            for ($j = 0; $j < 10; $j++) {
+                if (strpos($completedModules, "e$j") !== false) {
+                    $profficiency += 10;
+                }
+            }
         }
-    }
-
-    if ($profficiency > 99) {
-        $profficiency = 100;
     }
 
     return $profficiency;
