@@ -115,14 +115,8 @@ main table {
 }
 
 .card-progress {
-    height: 40%;
-}
-.card-homework {
     height: 60%;
 }
-
-.progress-container-xp {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card-homework {
+    height: 40%;
 }

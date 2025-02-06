@@ -89,27 +89,25 @@ function calculateTotalProgress($totalXP) {
 }
 
 function generatePieChart($progress) {
-    $radius = 90; // Increased radius for a bigger chart
+    $radius = 70; // Increased radius for a bigger chart
     $circumference = 2 * M_PI * $radius;  
     $percentage = round(max(0, min(100, $progress)), 1); // Ensure it's between 0 and 100  
     $offset = $circumference * (1 - $percentage / 100);  
 
     return "
-        <div class='progress-container'>
-            <svg width='320' height='320' viewBox='0 0 200 200'>
-                <!-- Background circle -->
-                <circle cx='100' cy='100' r='$radius' fill='none' stroke='#afb49d' stroke-width='20' />
-                
-                <!-- Progress circle -->
-                <circle cx='100' cy='100' r='$radius' fill='none' stroke='#3b4930' stroke-width='20' 
-                    stroke-dasharray='$circumference' stroke-dashoffset='$offset' 
-                    stroke-linecap='round' 
-                    transform='rotate(-90 100 100)' />
-                
-                <!-- Progress text -->
-                <text x='50%' y='50%' text-anchor='middle' dy='.3em' font-size='28px' fill='#333' font-weight='bold'>$percentage%</text>
-            </svg>
-        </div>
+        <svg width='320' height='320' viewBox='0 0 200 200'>
+            <!-- Background circle -->
+            <circle cx='100' cy='100' r='$radius' fill='none' stroke='#afb49d' stroke-width='20' />
+            
+            <!-- Progress circle -->
+            <circle cx='100' cy='100' r='$radius' fill='none' stroke='#3b4930' stroke-width='20' 
+                stroke-dasharray='$circumference' stroke-dashoffset='$offset' 
+                stroke-linecap='round' 
+                transform='rotate(-90 100 100)' />
+            
+            <!-- Progress text -->
+            <text x='50%' y='50%' text-anchor='middle' dy='.3em' font-size='28px' fill='#333' font-weight='bold'>$percentage%</text>
+        </svg>
     ";
 }
 
@@ -125,7 +123,7 @@ function generateAttendancePieChart($sickDays, $confirmedAbsentDays, $unconfirme
         "Good Days" => ["value" => $goodDays, "color" => "#67775a"] // Light Beige (box-bg-color)
     ];
 
-    $radius = 90;
+    $radius = 70;
     $center = 100;
     $circumference = 2 * M_PI * $radius;
     $total = $totalDays;
@@ -165,13 +163,11 @@ function generateAttendancePieChart($sickDays, $confirmedAbsentDays, $unconfirme
     }
 
     return "
-        <div class='progress-container'>
-            <svg width='320' height='320' viewBox='0 0 200 200'>
-                $svgPaths
-                <circle cx='$center' cy='$center' r='50' fill='#d5d0ba' />
-                <text x='50%' y='50%' text-anchor='middle' dy='.3em' font-size='14px' font-weight='bold' fill='#333'>Attendance</text>
-            </svg>
-        </div>
+        <svg width='320' height='320' viewBox='0 0 200 200'>
+            $svgPaths
+            <circle cx='$center' cy='$center' r='50' fill='#d5d0ba' />
+            <text x='50%' y='50%' text-anchor='middle' dy='.3em' font-size='14px' font-weight='bold' fill='#333'>Attendance</text>
+        </svg>
     ";
 }
 
@@ -353,17 +349,19 @@ if (isset($error)) {
                     </div>
 
                     <!-- Attendance Card -->
-                    <div class="dashboard-card card-attendance p-3 rounded box d-flex">
-                        <div class="container">
-                            <h2 class="h4 text-center">Attendance</h2>
-                            <p>Amount of sick days: <?php echo $sickDays; ?></p>
-                            <p>Amount of confirmed absent days: <?php echo $confirmedAbsentDays; ?></p>
-                            <p>Amount of unconfirmed absent days: <?php echo $unconfirmedAbsentDays; ?></p>
-                            <p>Amount of late days: <?php echo $lateDays; ?></p>
-                            <p>Amount of good days: <?php echo ($totalDays - ($sickDays + $confirmedAbsentDays + $unconfirmedAbsentDays + $lateDays)); ?></p>
-                        </div>
-                        <div class="container">
-                            <?= generateAttendancePieChart($sickDays, $confirmedAbsentDays, $unconfirmedAbsentDays, $lateDays, $totalDays); ?>
+                    <div class="dashboard-card card-attendance p-3 rounded box">
+                        <h2 class="h4 text-center">Attendance</h2>
+                        <div class="d-flex">
+                            <div class="container">
+                                <p>Amount of sick days: <?php echo $sickDays; ?></p>
+                                <p>Amount of confirmed absent days: <?php echo $confirmedAbsentDays; ?></p>
+                                <p>Amount of unconfirmed absent days: <?php echo $unconfirmedAbsentDays; ?></p>
+                                <p>Amount of late days: <?php echo $lateDays; ?></p>
+                                <p>Amount of good days: <?php echo ($totalDays - ($sickDays + $confirmedAbsentDays + $unconfirmedAbsentDays + $lateDays)); ?></p>
+                            </div>
+                            <div class="" style="position: relative; top: -50px;">
+                                <?= generateAttendancePieChart($sickDays, $confirmedAbsentDays, $unconfirmedAbsentDays, $lateDays, $totalDays); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -373,7 +371,10 @@ if (isset($error)) {
                     <!-- Progress -->
                     <div class="dashboard-card card-progress p-3 mb-3 rounded box">
                         <h2 class="h4">Progress</h2>
-                        <?= generatePieChart($totalProgress); ?>
+                        <div class="container justify-content-center d-flex flex-column align-items-center">
+                            <?= generatePieChart($totalProgress); ?>
+                            <h2>Software Development</h2>
+                        </div>
                     </div>
 
                     <!-- Homework -->
