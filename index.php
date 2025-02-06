@@ -19,10 +19,12 @@ try {
             throw new Exception('Database connection is not initialized');
         }
 
-        $stmt = $pdo->prepare("SELECT username, isAdmin, class, completedModules, 
-                                    sickDays, confirmedAbsentDays, unconfirmedAbsentDays, lateDays
-                               FROM accounts 
-                               WHERE id = :userID");
+        $stmt = $pdo->prepare("SELECT a.username, a.isAdmin, a.class, a.completedModules, 
+                                    a.sickDays, a.confirmedAbsentDays, a.unconfirmedAbsentDays, a.lateDays,
+                                    c.homework, c.examName, c.examDate
+                               FROM accounts a
+                               LEFT JOIN classes c ON a.class = c.classId
+                               WHERE a.id = :userID");
         $stmt->execute(['userID' => $userID]);
         $userData = $stmt->fetch();
 
@@ -39,6 +41,11 @@ try {
         $confirmedAbsentDays = $userData['confirmedAbsentDays'] ?? 0;
         $unconfirmedAbsentDays = $userData['unconfirmedAbsentDays'] ?? 0;
         $lateDays = $userData['lateDays'] ?? 0;
+
+        // Class data
+        $homework = $userData['homework'] ?? 'N/A';
+        $examName = $userData['examName'] ?? 'N/A';
+        $examDate = $userData['examDate'] ?? 'N/A';
 
     } else {
         throw new Exception('No user ID provided');
@@ -112,7 +119,7 @@ if (isset($error)) {
 
             <!-- Profile -->
             <div class="d-flex justify-content-between align-items-center mt-2 mt-sm-0">
-                <p class="p-2 px-5 me-2 mb-0 rounded-pill" style="background-color: #d5d0ba; color: #210720">LVL <?= levelUpCalculator(XPCalculator($completedModules)) ?> | <?= XPCalculator($completedModules) - (levelUpCalculator(XPCalculator($completedModules)) * 20) ?> XP</p>
+                <p class="p-2 px-5 me-2 mb-0 rounded-pill" style="background-color: #d5d0ba; color: #210720">LVL <?= levelUpCalculator(XPCalculator($completedModules)) ?> | <?= XPCalculator($completedModules) - (levelUpCalculator(XPCalculator($completedModules)) * 20) ?>/20 XP</p>
 
                 <p>
                     <div class="btn-group buttonNavColor">
@@ -142,7 +149,9 @@ if (isset($error)) {
 
                     <!-- Exams -->
                     <div class="dashboard-card card-exams p-3 mb-3 rounded box">
-                        <h2 class="h4">Exams</h2>
+                        <h2 class="h4">Upcoming Exam</h2>
+
+                        <p>[ <?= $examName ?>] [ <?= $examDate ?> ]</p>
                     </div>
 
                     <!-- Skills -->
@@ -236,6 +245,8 @@ if (isset($error)) {
                     <!-- Homework -->
                     <div class="dashboard-card card-homework p-3 mb-3 rounded box">
                         <h2 class="h4">Homework</h2>
+
+                        <p class="mt-3"><?= $homework ?></p>
                     </div>
                 </div>
             </div>
