@@ -61,6 +61,18 @@ function XPCalculator($completedModules) {
     return $xp;
 }
 
+// Calculate level
+function levelUpCalculator ($totalXP) {
+    $level = 0;
+
+    for ($i = $totalXP; $i >= 0; $i -= 20) {
+        if ($i >= 20) {
+            $level++;
+        }
+    }
+
+    return $level;
+}
 
 // Display error if it exists
 if (isset($error)) {
@@ -94,7 +106,7 @@ if (isset($error)) {
 
             <!-- Profile -->
             <div class="d-flex justify-content-between align-items-center mt-2 mt-sm-0">
-                <p class="p-2 px-5 me-2 mb-0 rounded-pill" style="background-color: #d5d0ba; color: #210720"><?= XPCalculator($completedModules) ?> XP</p>
+                <p class="p-2 px-5 me-2 mb-0 rounded-pill" style="background-color: #d5d0ba; color: #210720">LVL <?= levelUpCalculator(XPCalculator($completedModules)) ?> | <?= XPCalculator($completedModules) - (levelUpCalculator(XPCalculator($completedModules)) * 20) ?> XP</p>
 
                 <p>
                     <div class="btn-group buttonNavColor">
