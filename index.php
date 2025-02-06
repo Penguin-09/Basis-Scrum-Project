@@ -62,7 +62,7 @@ function XPCalculator($completedModules) {
 }
 
 // Calculate level
-function levelUpCalculator ($totalXP) {
+function levelUpCalculator($totalXP) {
     $level = 0;
 
     for ($i = $totalXP; $i >= 0; $i -= 20) {
@@ -73,6 +73,39 @@ function levelUpCalculator ($totalXP) {
 
     return $level;
 }
+
+function calculateTotalProgress($totalXP) {
+    $maxXP = 900;
+    $progress = ($totalXP / $maxXP) * 100;
+    return $progress;
+}
+
+function generatePieChart($progress) {
+    $radius = 90; // Increased radius for a bigger chart
+    $circumference = 2 * M_PI * $radius;  
+    $percentage = round(max(0, min(100, $progress)), 1); // Ensure it's between 0 and 100  
+    $offset = $circumference * (1 - $percentage / 100);  
+
+    return "
+        <div class='progress-container'>
+            <svg width='320' height='320' viewBox='0 0 200 200'>
+                <!-- Background circle -->
+                <circle cx='100' cy='100' r='$radius' fill='none' stroke='#afb49d' stroke-width='20' />
+                
+                <!-- Progress circle -->
+                <circle cx='100' cy='100' r='$radius' fill='none' stroke='#3b4930' stroke-width='20' 
+                    stroke-dasharray='$circumference' stroke-dashoffset='$offset' 
+                    stroke-linecap='round' 
+                    transform='rotate(-90 100 100)' />
+                
+                <!-- Progress text -->
+                <text x='50%' y='50%' text-anchor='middle' dy='.3em' font-size='28px' fill='#333' font-weight='bold'>$percentage%</text>
+            </svg>
+        </div>
+    ";
+}
+
+$totalProgress = calculateTotalProgress(XPCalculator($completedModules));
 
 if (isset($_POST['logout'])) {
     session_destroy();
@@ -231,6 +264,7 @@ if (isset($error)) {
                     <!-- Progress -->
                     <div class="dashboard-card card-progress p-3 mb-3 rounded box">
                         <h2 class="h4">Progress</h2>
+                        <?= generatePieChart($totalProgress); ?>
                     </div>
 
                     <!-- Homework -->

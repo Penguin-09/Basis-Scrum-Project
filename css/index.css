@@ -102,3 +102,9 @@ main table {
 .card-homework {
     height: 60%;
 }
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
