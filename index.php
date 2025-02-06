@@ -109,7 +109,9 @@ if (isset($error)) {
                         <ul class="dropdown-menu dropdown-menu-lg-end buttonNavColor">
                             <li><button class="dropdown-item buttonNavColorDr" type="button">Change Avatar</button></li>
                             <li><button class="dropdown-item buttonNavColorDr" type="button">Settings</button></li>
-                            <li><button class="dropdown-item buttonNavColorDr" type="button" name="logout">Log Out</button></li>
+                            <form method="post">
+                                <li><button class="dropdown-item buttonNavColorDr" type="submit" name="logout">Log Out</button></li>
+                            </form>
                         </ul>
                     </div>
                 </p>
