@@ -1,6 +1,6 @@
 # Rhizome project
 
-To gain experience working with SCRUM methodology, we assembled a team of five people, each with specific roles and responsibilities.
+To gain experience working with SCRUM methodology, we assembled a team of five people (although we ended the project with only a team of 3), each with specific roles and responsibilities.
 
 Our goal was to build an alternative version of the NexEd website. This website provides students with the ability to view personal information and progress, such as the number of completed modules. Additionally, coaches can also gain insight into the progress of students, including details about completed modules and other relevant data.
 
