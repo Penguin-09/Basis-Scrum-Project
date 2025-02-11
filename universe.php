@@ -93,6 +93,28 @@ if (isset($error)) {
     echo "<p class='error'>$error</p>";
 }
 
+function calculatePercentage($completedModules, $moduleNumber) {
+
+    $x = array_fill(1, 9, 0);
+
+    preg_match_all('/m(\d+)e(\d+)/', $completedModules, $matches, PREG_SET_ORDER);
+
+    foreach ($matches as $match) {
+        $key = (int)$match[1];  
+        $value = (int)$match[2];
+        $x[$key] = $value;      
+    }
+
+    $aantalCompletedLevels = $x[$moduleNumber] ?? 0;  
+    
+    $totalAmountOfLevels = 5;
+
+    $precentage = ($aantalCompletedLevels / $totalAmountOfLevels) * 100;
+
+    return $precentage;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -146,14 +168,29 @@ if (isset($error)) {
                 <!-- Front-end -->
                 <div class="col-lg-4 d-flex align-items-center flex-column">
                     <!-- HTML A -->
-                    <div class="rounded-circle d-flex align-items-center text-center customModule shadow">HTML Advanced</div>
+                    <a href="#">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center text-center customModule shadow position-relative">
+                            <span class="text-overlay">HTML Advanced</span>
+                            <div class="progress-bar progress-striped position-absolute" style="height: <?php echo calculatePercentage($completedModules, 5); ?>%;"></div>
+                        </div>
+                    </a>
 
                     <div class="d-flex justify-content-center gap-3">
                         <!-- HTML B -->
-                        <div class="rounded-circle d-flex align-items-center text-center customModule shadow">HTML Beginner</div>
+                        <a href="#">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center text-center customModule shadow position-relative">
+                                <span class="text-overlay">HTML Beginner</span>
+                                <div class="progress-bar progress-striped position-absolute" style="height: <?php echo calculatePercentage($completedModules, 4); ?>%;"></div>
+                            </div>
+                        </a>
 
                         <!-- JS A -->
-                        <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Javascript Beginner</div>
+                        <a href="#">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center text-center customModule shadow position-relative">
+                                <span class="text-overlay">Javascript Beginner</span>
+                                <div class="progress-bar progress-striped position-absolute" style="height: <?php echo calculatePercentage($completedModules, 6); ?>%;"></div>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -161,34 +198,63 @@ if (isset($error)) {
                     <!-- Back-end -->
                     <div class="col-lg-4 d-flex align-items-center flex-column">
                         <!-- DB A -->
-                        <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Database Advanced</div>
+                        <a href="#">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center text-center customModule shadow position-relative">
+                                <span class="text-overlay">Database Beginner</span>
+                                <div class="progress-bar progress-striped position-absolute" style="height: <?php echo calculatePercentage($completedModules, 3); ?>%;"></div>
+                            </div>
+                        </a>
 
                         <div class="d-flex justify-content-center gap-3">
                             <!-- PHP A -->
-                            <div class="rounded-circle d-flex align-items-center text-center customModule shadow">PHP Advanced</div>
+                            <a href="#">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-center customModule shadow position-relative">
+                                    <span class="text-overlay">PHP Advanced</span>
+                                    <div class="progress-bar progress-striped position-absolute" style="height: <?php echo calculatePercentage($completedModules, 2); ?>%;"></div>
+                                </div>
+                            </a>
 
                             <!-- PHP B -->
-                            <div class="rounded-circle d-flex align-items-center text-center customModule shadow">PHP Beginner</div>
+                            <a href="#">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-center customModule shadow position-relative">
+                                    <span class="text-overlay">PHP Beginner</span>
+                                    <div class="progress-bar progress-striped position-absolute" style="height: <?php echo calculatePercentage($completedModules, 1); ?>%;"></div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
                     <!-- Data analist -->
                     <div class="col-lg-4 d-flex align-items-center flex-column">
                         <!-- Data visualization -->
-                        <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Data Visualization</div>
+                        <a href="#">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center text-center customModule shadow position-relative">
+                                <span class="text-overlay">Data Visualization</span>
+                                <div class="progress-bar progress-striped position-absolute" style="height: <?php echo calculatePercentage($completedModules, 9); ?>%;"></div>
+                            </div>
+                        </a>
 
                         <div class="d-flex justify-content-center gap-3">
                             <!-- Python Beginner -->
-                            <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Python Beginner</div>
+                            <a href="#">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-center customModule shadow position-relative">
+                                    <span class="text-overlay">Python Beginner</span>
+                                    <div class="progress-bar progress-striped position-absolute" style="height: <?php echo calculatePercentage($completedModules, 7); ?>%;"></div>
+                                </div>
+                            </a>
 
                             <!-- Data Manipulation -->
-                            <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Data Manipulation</div>
+                            <a href="#">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-center customModule shadow position-relative">
+                                    <span class="text-overlay">Data Manipulation</span>
+                                    <div class="progress-bar progress-striped position-absolute" style="height: <?php echo calculatePercentage($completedModules, 8); ?>%;"></div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
