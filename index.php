@@ -225,7 +225,7 @@ if (isset($error)) {
             <!-- Navigation -->
             <nav class="d-flex flex-wrap justify-content-center">
                 <a class="m-2 text-decoration-none fs-4" href="#">Home</a>
-                <a class="m-2 text-decoration-none fs-4" href="#">Tree</a>
+                <a class="m-2 text-decoration-none fs-4" href="universe.php">Tree</a>
                 <a class="m-2 text-decoration-none fs-4" href="#">Reviews</a>
                 <a class="m-2 text-decoration-none fs-4" href="#">Ontwikkeling</a>
             </nav>
