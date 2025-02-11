@@ -1,0 +1,11 @@
+.customModule {
+    width: 100px;
+    height: 100px; 
+    background-color: #3b4930;
+    transition: transform 0.3s ease;
+    
+}
+
+.customModule:hover {
+    transform: scale(1.2);
+}

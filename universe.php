@@ -103,6 +103,7 @@ if (isset($error)) {
     <title>Rhizome</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/universe.css">
 </head>
 <body>
     <!-- HEADER -->
@@ -138,6 +139,55 @@ if (isset($error)) {
                 </p>
             </div>
         </header>
+
+        <!-- TREE -->
+        <main class="container" style="color: #cdcdb5">
+            <div class="row mt-3 d-flex align-items-center flex-column">
+                <!-- Front-end -->
+                <div class="col-lg-4 d-flex align-items-center flex-column">
+                    <!-- HTML A -->
+                    <div class="rounded-circle d-flex align-items-center text-center customModule shadow">HTML Advanced</div>
+
+                    <div class="d-flex justify-content-center gap-3">
+                        <!-- HTML B -->
+                        <div class="rounded-circle d-flex align-items-center text-center customModule shadow">HTML Beginner</div>
+
+                        <!-- JS A -->
+                        <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Javascript Beginner</div>
+                    </div>
+                </div>
+
+                <div class="d-flex mt-5 justify-content-center gap-3">
+                    <!-- Back-end -->
+                    <div class="col-lg-4 d-flex align-items-center flex-column">
+                        <!-- DB A -->
+                        <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Database Advanced</div>
+
+                        <div class="d-flex justify-content-center gap-3">
+                            <!-- PHP A -->
+                            <div class="rounded-circle d-flex align-items-center text-center customModule shadow">PHP Advanced</div>
+
+                            <!-- PHP B -->
+                            <div class="rounded-circle d-flex align-items-center text-center customModule shadow">PHP Beginner</div>
+                        </div>
+                    </div>
+
+                    <!-- Data analist -->
+                    <div class="col-lg-4 d-flex align-items-center flex-column">
+                        <!-- Data visualization -->
+                        <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Data Visualization</div>
+
+                        <div class="d-flex justify-content-center gap-3">
+                            <!-- Python Beginner -->
+                            <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Python Beginner</div>
+
+                            <!-- Data Manipulation -->
+                            <div class="rounded-circle d-flex align-items-center text-center customModule shadow">Data Manipulation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
