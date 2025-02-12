@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
     }, { passive: false });
 
-    // Panning functionality
+    // Dragging functionality
     document.addEventListener('mousedown', function(event) {
         isDragging = true;
         startX = event.clientX - currentX;
