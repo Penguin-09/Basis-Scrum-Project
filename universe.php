@@ -218,33 +218,23 @@ function calculatePercentage($completedModules, $moduleNumber) {
                             <div class="rounded-circle d-flex align-items-center justify-content-center text-center position-relative">
                             <svg viewBox="0 0 100 100" width="150" height="150" style="transform: rotate(270deg);">
                             <?php 
-                                // Get the fill height as a percentage of 100.
                                 $fillHeight = calculatePercentage($completedModules, 4); 
                             ?>
                             <defs>
-                                <!-- 
-                                The clipPath rectangle controls how much of the leaf is "filled".
-                                For a viewBox height of 100, if $fillHeight is 60 (60% fill):
-                                    y = 100 - 60 = 40 and height = 60.
-                                -->
                                 <clipPath id="leafClipFront2">
                                 <rect x="0" y="<?php echo 100 - $fillHeight; ?>" width="100" height="<?php echo $fillHeight; ?>" />
                                 </clipPath>
                             </defs>
-                            
-                            <!-- Base (Unfilled) Leaf -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#D3EAA3" />
-                            
-                            <!-- Filled Portion (Clipped) -->
+
                             <g clip-path="url(#leafClipFront2)">
                                 <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#76C043" />
                             </g>
                             
-                            <!-- Leaf Outline -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="none"
@@ -263,33 +253,24 @@ function calculatePercentage($completedModules, $moduleNumber) {
                             <div class="rounded-circle d-flex align-items-center justify-content-center text-center position-relative">
                             <svg viewBox="0 0 100 100" width="150" height="150" style="transform: rotate(90deg);">
                             <?php 
-                                // Get the fill height as a percentage of 100.
                                 $fillHeight = calculatePercentage($completedModules, 6); 
                             ?>
                             <defs>
-                                <!-- 
-                                The clipPath rectangle controls how much of the leaf is "filled".
-                                For a viewBox height of 100, if $fillHeight is 60 (60% fill):
-                                    y = 100 - 60 = 40 and height = 60.
-                                -->
                                 <clipPath id="leafClipFront3">
                                 <rect x="0" y="<?php echo 100 - $fillHeight; ?>" width="100" height="<?php echo $fillHeight; ?>" />
                                 </clipPath>
                             </defs>
                             
-                            <!-- Base (Unfilled) Leaf -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#D3EAA3" />
-                            
-                            <!-- Filled Portion (Clipped) -->
+
                             <g clip-path="url(#leafClipFront3)">
                                 <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#76C043" />
                             </g>
                             
-                            <!-- Leaf Outline -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="none"
@@ -313,33 +294,24 @@ function calculatePercentage($completedModules, $moduleNumber) {
                             <div class="rounded-circle d-flex align-items-center justify-content-center text-center position-relative">
                             <svg viewBox="0 0 100 100" width="150" height="150">
                             <?php 
-                                // Get the fill height as a percentage of 100.
                                 $fillHeight = calculatePercentage($completedModules, 1); 
                             ?>
                             <defs>
-                                <!-- 
-                                The clipPath rectangle controls how much of the leaf is "filled".
-                                For a viewBox height of 100, if $fillHeight is 60 (60% fill):
-                                    y = 100 - 60 = 40 and height = 60.
-                                -->
                                 <clipPath id="leafClipBack1">
                                 <rect x="0" y="<?php echo 100 - $fillHeight; ?>" width="100" height="<?php echo $fillHeight; ?>" />
                                 </clipPath>
                             </defs>
                             
-                            <!-- Base (Unfilled) Leaf -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#D3EAA3" />
                             
-                            <!-- Filled Portion (Clipped) -->
                             <g clip-path="url(#leafClipBack1)">
                                 <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#76C043" />
                             </g>
                             
-                            <!-- Leaf Outline -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="none"
@@ -359,33 +331,24 @@ function calculatePercentage($completedModules, $moduleNumber) {
                                 <div class="rounded-circle d-flex align-items-center justify-content-center text-center position-relative">
                                 <svg viewBox="0 0 100 100" width="150" height="150" style="transform: rotate(180deg);">
                             <?php 
-                                // Get the fill height as a percentage of 100.
                                 $fillHeight = calculatePercentage($completedModules, 2); 
                             ?>
                             <defs>
-                                <!-- 
-                                The clipPath rectangle controls how much of the leaf is "filled".
-                                For a viewBox height of 100, if $fillHeight is 60 (60% fill):
-                                    y = 100 - 60 = 40 and height = 60.
-                                -->
                                 <clipPath id="leafClipBack2">
                                 <rect x="0" y="<?php echo 100 - $fillHeight; ?>" width="100" height="<?php echo $fillHeight; ?>" />
                                 </clipPath>
                             </defs>
                             
-                            <!-- Base (Unfilled) Leaf -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#D3EAA3" />
                             
-                            <!-- Filled Portion (Clipped) -->
                             <g clip-path="url(#leafClipBack2)">
                                 <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#76C043" />
                             </g>
                             
-                            <!-- Leaf Outline -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="none"
@@ -404,33 +367,24 @@ function calculatePercentage($completedModules, $moduleNumber) {
                                 <div class="rounded-circle d-flex align-items-center justify-content-center text-center position-relative">
                                 <svg viewBox="0 0 100 100" width="150" height="150" style="transform: rotate(180deg);">
                             <?php 
-                                // Get the fill height as a percentage of 100.
                                 $fillHeight = calculatePercentage($completedModules, 1); 
                             ?>
                             <defs>
-                                <!-- 
-                                The clipPath rectangle controls how much of the leaf is "filled".
-                                For a viewBox height of 100, if $fillHeight is 60 (60% fill):
-                                    y = 100 - 60 = 40 and height = 60.
-                                -->
                                 <clipPath id="leafClipBack3">
                                 <rect x="0" y="<?php echo 100 - $fillHeight; ?>" width="100" height="<?php echo $fillHeight; ?>" />
                                 </clipPath>
                             </defs>
                             
-                            <!-- Base (Unfilled) Leaf -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#D3EAA3" />
                             
-                            <!-- Filled Portion (Clipped) -->
                             <g clip-path="url(#leafClipBack3)">
                                 <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#76C043" />
                             </g>
                             
-                            <!-- Leaf Outline -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="none"
@@ -453,33 +407,25 @@ function calculatePercentage($completedModules, $moduleNumber) {
                             <div class="d-flex align-items-center justify-content-center text-center position-relative">
                             <svg viewBox="0 0 100 100" width="150" height="150">
                             <?php 
-                                // Get the fill height as a percentage of 100.
                                 $fillHeight = calculatePercentage($completedModules, 9); 
                             ?>
                             <defs>
-                                <!-- 
-                                The clipPath rectangle controls how much of the leaf is "filled".
-                                For a viewBox height of 100, if $fillHeight is 60 (60% fill):
-                                    y = 100 - 60 = 40 and height = 60.
-                                -->
                                 <clipPath id="leafClipData1">
                                 <rect x="0" y="<?php echo 100 - $fillHeight; ?>" width="100" height="<?php echo $fillHeight; ?>" />
                                 </clipPath>
                             </defs>
                             
-                            <!-- Base (Unfilled) Leaf -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#D3EAA3" />
                             
-                            <!-- Filled Portion (Clipped) -->
                             <g clip-path="url(#leafClipData1)">
                                 <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#76C043" />
                             </g>
                             
-                            <!-- Leaf Outline -->
+
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="none"
@@ -499,25 +445,21 @@ function calculatePercentage($completedModules, $moduleNumber) {
                                 <div class="rounded-circle d-flex align-items-center justify-content-center text-center position-relative">
                                 <svg viewBox="0 0 100 100" width="150" height="150" style="transform: rotate(180deg);">
                                     <defs>
-                                        <!-- For a 60% fill (with viewBox height of 100), the clip rectangle starts at y=40 -->
                                         <clipPath id="leafClipData2">
                                         <rect x="0" y="40" width="100" height="60" />
                                         </clipPath>
                                     </defs>
                                     
-                                    <!-- Base (Unfilled) Leaf -->
                                     <path
                                         d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                         fill="#D3EAA3" />
                                     
-                                    <!-- Filled Portion (Clipped) -->
                                     <g clip-path="url(#leafClipData2)">
                                         <path
                                         d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                         fill="#76C043" />
                                     </g>
                                     
-                                    <!-- Leaf Outline -->
                                     <path
                                         d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                         fill="none"
@@ -536,33 +478,24 @@ function calculatePercentage($completedModules, $moduleNumber) {
                                 <div class="rounded-circle d-flex align-items-center justify-content-center text-center position-relative">
                                 <svg viewBox="0 0 100 100" width="150" height="150" style="transform: rotate(180deg);">
                             <?php 
-                                // Get the fill height as a percentage of 100.
                                 $fillHeight = calculatePercentage($completedModules, 8); 
                             ?>
                             <defs>
-                                <!-- 
-                                The clipPath rectangle controls how much of the leaf is "filled".
-                                For a viewBox height of 100, if $fillHeight is 60 (60% fill):
-                                    y = 100 - 60 = 40 and height = 60.
-                                -->
                                 <clipPath id="leafClipData3">
                                 <rect x="0" y="<?php echo 100 - $fillHeight; ?>" width="100" height="<?php echo $fillHeight; ?>" />
                                 </clipPath>
                             </defs>
                             
-                            <!-- Base (Unfilled) Leaf -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#D3EAA3" />
                             
-                            <!-- Filled Portion (Clipped) -->
                             <g clip-path="url(#leafClipData3)">
                                 <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="#76C043" />
                             </g>
                             
-                            <!-- Leaf Outline -->
                             <path
                                 d="M50,5 C70,15, 90,40, 50,95, 10,40, 30,15, 50,5 Z"
                                 fill="none"
